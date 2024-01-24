@@ -1,96 +1,106 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* 
+THIS is to test
 body {
+  background: red; 
+} 
+*/
+
+/* THIS IS THE BODY AND HEADER PART */
+
+/* any elements before and after any elements */
+*, *::after, *::before{
+  box-sizing: border-box;
+}
+
+body{
   margin: 0;
+  background-color: whitesmoke;
+  color: darkblue;
+  font-family:  Helvetica, Arial, sans-serif;
+
+}
+
+/* the main class to control the whole header */
+.header{
+
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  align-items: center;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* this is for the big icon in the header */
+.header-left{
+display: flex;
+width: 50%;
+align-items: center;
+justify-content: center;
+margin: .5rem;
+padding: .5rem;
+border-right: 4px solid darkblue;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* for the icons */
+.weather-icon{
+  width: 40px; 
+  height: 40px;
+  object-fit: contain;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vanilla:hover {
-  filter: drop-shadow(0 0 2em #f7df1eaa);
+
+ /* The CSS rule .weather-icon.large would apply styles specifically to this element. 
+ It's a way to be more specific in your styling, 
+ particularly when you want to style only elements that have both of those classes. */
+
+ /* for larger icons, for the sin */
+.weather-icon.large {
+  width: 80px; 
+  height: 80px;
+  
 }
 
-.card {
-  padding: 2em;
+
+/* this is for bigger texts */
+.header-current-temp{
+  /* usu 1 rem is 16px */
+  font-size: 2rem; 
+  margin-left: 1rem;
 }
 
-.read-the-docs {
-  color: #888;
+.header-right{
+  /* better to use grid as we have six similar data sets*/
+  display: grid;
+   /*another equal half  */
+  width:50%;
+  justify-content: space-around;
+  gap: .5rem;
+  /* column number autosized */
+  grid-template-columns: repeat(3, auto);
+  grid-template-rows: repeat(2, auto);
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+ /* styling for all cells */
+.info-group{
+  display: flex;
+  /* made it horizontal */
+  flex-direction: column;
+  align-items: center;
+  
+
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+/* styling for the text of each cell of 6*/
+.label{
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 0.6rem;
+  /* I like to see colors before applying https://hslpicker.com/#0019ff */
+  /* hsla(234, 63%, 29%, 1) */
+  color: #1b2579
 }
+
+.value-sub-info{
+  font-weight: 300;
+  /* 0.75 of the parent, which is label */
+  font-size: 0.75rem;
+}
+
+

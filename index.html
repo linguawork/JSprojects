@@ -2,12 +2,75 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+
   </head>
   <body>
-    <div id="app"></div>
+    <header class="header">  
+
+      <div class="header-left">
+        <!-- data- attribute will allow us work with JS, change picture -->
+        <img class="weather-icon large" src="public/icons/sun.svg" alt="" 
+        data-current-icon >
+        <!-- one more div for current temp -->
+        <div class="header-current-temp">
+          <!-- temperature will change with data attr, &deg is a special symbol -->
+          <span data-current-temp >31</span>&deg;
+        </div>
+      </div>
+
+      <div class="header-right">
+         <!-- one uniting div for all the info inside one cell
+           in the right side of header -->
+        <div class="info-group">
+          <div class="label">High</div>
+          <!-- span is for temper, again data to change value -->
+          <div><span data-current-high>32</span>&deg;</div>
+        </div> 
+
+        <!-- one unit div for one cell in the right side of header -->
+        <div class="info-group">
+          <div class="label">FL High</div>
+          <!-- span is for temperature, deg sign is for div, 
+          data attr is changed according to val -->
+          <div><span data-current-fl-high>27</span>&deg;</div>
+        </div>
+
+        <div class="info-group">
+          <div class="label">Wind</div>
+          <!-- span is for wind value, mpj is in div
+          data attr is changed according to val -->
+          <div><span data-current-wind>9</span>
+            <!-- one more span for small letters like mph -->
+            <span class="value-sub-info">mph</span></div>
+        </div>
+ 
+        <div class="info-group">
+          <div class="label">Low</div>
+          <!-- span is for temperature, deg sign is for div 
+          data attr is changed according to val -->
+          <div><span data-current-low>19</span>&deg;</div>
+        </div>
+
+        <div class="info-group">
+          <div class="label">FL Low</div>
+          <!-- span is for temperature, deg sign is for div -->
+          <div><span data-current-fl-low>12</span>&deg;</div>
+        </div>
+
+        <div class="info-group">
+          <div class="label">Precip</div>
+          <!-- span is for temperature, deg sign is for div -->
+          <div><span data-current-precip>0.1</span>
+            <span class="value-sub-info">in</span>
+            </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- the end of header -->
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
