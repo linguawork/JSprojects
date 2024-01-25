@@ -123,55 +123,45 @@
       </div>   
     </section>
 
-
-    <template>
-      <!-- for later reuse -->
-      <div class="day-card">
-        <img src="public/icons/cloud.svg"  class="weather-icon"/>
-        <div class="day-card-day"></div>
-        <div>&deg;</div>
-      </div>  
-    </template>
-
     <table class="hour-section">
       <tbody data-hour-section>
         <tr class="hour-row">
-        <!-- six elements in the row of table body -->
-        <td>
-          <!-- the styling is the same as in header, 
-          so the same classes are applied -->
-          <div class="info-group">
-            <div class="label">Thursday</div>
-            <div>3pm</div>
-          </div>
-        </td>
+          <!-- six elements in the row of table body -->
+          <td>
+            <!-- the styling is the same as in header, 
+            so the same classes are applied -->
+            <div class="info-group">
+              <div class="label">Thursday</div>
+              <div>3pm</div>
+            </div>
+          </td>
 
-        <td>
-          <!-- the same class for the images -->
-          <img src="icons/cloud.svg" alt="" class="weather-icon">
-          
-        </td>
+          <td>
+            <!-- the same class for the images -->
+            <img src="icons/cloud.svg" alt="" class="weather-icon">
+            
+          </td>
 
-        <td>
-          <div class="label">Temp</div>
-          <div>31&deg;</div>
-        </td>
+          <td>
+            <div class="label">Temp</div>
+            <div>31&deg;</div>
+          </td>
 
-        <td>
-          <div class="label"> FL Temp</div>
-          <div>25&deg;</div>
-        </td>
+          <td>
+            <div class="label"> FL Temp</div>
+            <div>25&deg;</div>
+          </td>
 
-        <td>
-          <div class="label">Wind</div>
-                    <!-- the same class for the small letters -->
-          <div>6<span class="value-sub-info">mph</span></div>
-        </td>
+          <td>
+            <div class="label">Wind</div>
+                      <!-- the same class for the small letters -->
+            <div>6<span class="value-sub-info">mph</span></div>
+          </td>
 
-        <td>
-          <div class="label">Precip</div>
-          <div>0<span class="value-sub-info">in</span></div>
-        </td>
+          <td>
+            <div class="label">Precip</div>
+            <div>0<span class="value-sub-info">in</span></div>
+          </td>
         </tr>
 
         <tr class="hour-row">
@@ -448,6 +438,62 @@
           </tr>
       </tbody>
     </table>
+
+
+      <!-- In templates all the values deleted to be replaced with da -->
+      <template id="day-card-template">
+        <div class="day-card">
+          <!-- src for img replaced with data-icon attr -->
+          <img data-icon class="weather-icon"/>
+          <!-- Day value: Monday deleted, added attr: data-day -->
+          <div class="day-card-day" data-day></div>
+          <!-- temp value: 32 placed into span, 
+            deg is in span, 
+            then 32 deleted, added attr: data-temp instead -->
+          <div><span data-temp></span> <span>&deg;</span></div>
+        </div>  
+      </template>
+  
+      <template id="hour-row-template">
+        <tr class="hour-row">
+          <td>
+            <div class="info-group">
+              <!-- day replaced with data-day -->
+              <div class="label" data-day></div>
+              <!-- hour with data-time -->
+              <div date-time></div>
+            </div>
+          </td>
+
+          <td>
+            <img data-icon alt="" class="weather-icon">  
+          </td>
+
+          <td>
+            <div class="label">Temp</div>
+            <!-- old val replaced with the one from above -->
+            <div><span data-temp></span> <span>&deg;</span></div>
+          </td>
+
+          <td>
+            <div class="label"> FL Temp</div>
+            <div><span data-fl-temp></span> <span>&deg;</span></div>
+          </td>
+
+          <td>
+            <div class="label">Wind</div>
+                      <!-- data-wind in span -->
+            <div><span data-wind></span> <span class="value-sub-info">mph</span></div>
+          </td>
+
+          <td>
+            <div class="label">Precip</div>
+            <div><span data-precip></span> <span class="value-sub-info">in</span></div>
+          </td>
+        </tr>
+
+      </template>
+  
 
     <script type="module" src="/main.js"></script>
   </body>
