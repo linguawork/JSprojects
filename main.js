@@ -8,6 +8,6 @@ import { getWeather } from './weather'
  This is how we get time zone, it will give us our current location time
  */
 getWeather(10, 10, Intl.DateTimeFormat().resolvedOptions().timeZone)
-.then(res => {
-    console.log(res.data)
+.then(data => {
+    console.log(data)
 })
