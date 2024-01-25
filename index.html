@@ -12,7 +12,7 @@
 
       <div class="header-left">
         <!-- data- attribute will allow us work with JS, change picture -->
-        <img class="weather-icon large" src="public/icons/sun.svg" alt="" 
+        <img class="weather-icon large" src="icons/sun.svg" alt="" 
         data-current-icon >
         <!-- one more div for current temp -->
         <div class="header-current-temp">
@@ -81,48 +81,47 @@
       <div class="day-card">
           <!-- weather-icon class is for all the images except 
             big ones -->
-        <img src="public/icons/cloud-showers-heavy.svg"  class="weather-icon"/>
+        <img src="icons/cloud-showers-heavy.svg"  class="weather-icon"/>
         <div class="day-card-day">Monday</div>
         <div>32&deg;</div>
       </div>   
 
       <div class="day-card">
-        <img src="public/icons/cloud.svg"  class="weather-icon"/>
+        <img src="icons/cloud.svg"  class="weather-icon"/>
         <div class="day-card-day">Tuesday</div>
         <div>32&deg;</div>
       </div>
 
       <div class="day-card">
-        <img src="public/icons/cloud-sun.svg"  class="weather-icon"/>
+        <img src="icons/cloud-sun.svg"  class="weather-icon"/>
         <div class="day-card-day">Wednesday</div>
         <div>32&deg;</div>
       </div> 
 
       <div class="day-card">
-        <img src="public/icons/cloud.svg"  class="weather-icon"/>
+        <img src="icons/cloud.svg"  class="weather-icon"/>
         <div class="day-card-day">Thursday</div>
         <div>32&deg;</div>
       </div>   
 
       <div class="day-card">
-        <img src="public/icons/cloud-showers-heavy.svg"  class="weather-icon"/>
+        <img src="icons/cloud-showers-heavy.svg"  class="weather-icon"/>
         <div class="day-card-day">Friday</div>
         <div>32&deg;</div>
       </div>   
 
       <div class="day-card">
-        <img src="public/icons/cloud-showers-heavy.svg"  class="weather-icon"/>
+        <img src="icons/cloud-showers-heavy.svg"  class="weather-icon"/>
         <div class="day-card-day">Saturday</div>
         <div>32&deg;</div>
       </div>   
 
       <div class="day-card">
-        <img src="public/icons/cloud.svg"  class="weather-icon"/>
+        <img src="icons/cloud.svg"  class="weather-icon"/>
         <div class="day-card-day">Sunday</div>
         <div>32&deg;</div>
       </div>   
     </section>
-
 
 
     <template>
@@ -133,6 +132,322 @@
         <div>&deg;</div>
       </div>  
     </template>
+
+    <table class="hour-section">
+      <tbody data-hour-section>
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+          <!-- the styling is the same as in header, 
+          so the same classes are applied -->
+          <div class="info-group">
+            <div class="label">Thursday</div>
+            <div>3pm</div>
+          </div>
+        </td>
+
+        <td>
+          <!-- the same class for the images -->
+          <img src="icons/cloud.svg" alt="" class="weather-icon">
+          
+        </td>
+
+        <td>
+          <div class="label">Temp</div>
+          <div>31&deg;</div>
+        </td>
+
+        <td>
+          <div class="label"> FL Temp</div>
+          <div>25&deg;</div>
+        </td>
+
+        <td>
+          <div class="label">Wind</div>
+                    <!-- the same class for the small letters -->
+          <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+          <div class="label">Precip</div>
+          <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+          <!-- six elements in the row of table body -->
+          <td>
+            <!-- the styling is the same as in header, 
+            so the same classes are applied -->
+            <div class="info-group">
+              <div class="label">Thursday</div>
+              <div>3pm</div>
+            </div>
+          </td>
+  
+          <td>
+            <!-- the same class for the images -->
+            <img src="icons/cloud.svg" alt="" class="weather-icon">
+            
+          </td>
+  
+          <td>
+            <div class="label">Temp</div>
+            <div>31&deg;</div>
+          </td>
+  
+          <td>
+            <div class="label"> FL Temp</div>
+            <div>25&deg;</div>
+          </td>
+  
+          <td>
+            <div class="label">Wind</div>
+                      <!-- the same class for the small letters -->
+            <div>6<span class="value-sub-info">mph</span></div>
+          </td>
+  
+          <td>
+            <div class="label">Precip</div>
+            <div>0<span class="value-sub-info">in</span></div>
+          </td>
+          </tr>
+
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+        <!-- the styling is the same as in header, 
+        so the same classes are applied -->
+        <div class="info-group">
+        <div class="label">Thursday</div>
+        <div>3pm</div>
+        </div>
+        </td>
+
+        <td>
+        <!-- the same class for the images -->
+        <img src="icons/cloud.svg" alt="" class="weather-icon">
+
+        </td>
+
+        <td>
+        <div class="label">Temp</div>
+        <div>31&deg;</div>
+        </td>
+
+        <td>
+        <div class="label"> FL Temp</div>
+        <div>25&deg;</div>
+        </td>
+
+        <td>
+        <div class="label">Wind</div>
+          <!-- the same class for the small letters -->
+        <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+        <div class="label">Precip</div>
+        <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+        <!-- the styling is the same as in header, 
+        so the same classes are applied -->
+        <div class="info-group">
+        <div class="label">Thursday</div>
+        <div>3pm</div>
+        </div>
+        </td>
+
+        <td>
+        <!-- the same class for the images -->
+        <img src="icons/cloud.svg" alt="" class="weather-icon">
+
+        </td>
+
+        <td>
+        <div class="label">Temp</div>
+        <div>31&deg;</div>
+        </td>
+
+        <td>
+        <div class="label"> FL Temp</div>
+        <div>25&deg;</div>
+        </td>
+
+        <td>
+        <div class="label">Wind</div>
+              <!-- the same class for the small letters -->
+        <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+        <div class="label">Precip</div>
+        <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+        <!-- the styling is the same as in header, 
+        so the same classes are applied -->
+        <div class="info-group">
+        <div class="label">Thursday</div>
+        <div>3pm</div>
+        </div>
+        </td>
+
+        <td>
+        <!-- the same class for the images -->
+        <img src="icons/cloud.svg" alt="" class="weather-icon">
+
+        </td>
+
+        <td>
+        <div class="label">Temp</div>
+        <div>31&deg;</div>
+        </td>
+
+        <td>
+        <div class="label"> FL Temp</div>
+        <div>25&deg;</div>
+        </td>
+
+        <td>
+        <div class="label">Wind</div>
+                <!-- the same class for the small letters -->
+        <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+        <div class="label">Precip</div>
+        <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+        <!-- the styling is the same as in header, 
+        so the same classes are applied -->
+        <div class="info-group">
+          <div class="label">Thursday</div>
+          <div>3pm</div>
+        </div>
+        </td>
+
+        <td>
+        <!-- the same class for the images -->
+        <img src="icons/cloud.svg" alt="" class="weather-icon">
+
+        </td>
+
+        <td>
+        <div class="label">Temp</div>
+        <div>31&deg;</div>
+        </td>
+
+        <td>
+        <div class="label"> FL Temp</div>
+        <div>25&deg;</div>
+        </td>
+
+        <td>
+        <div class="label">Wind</div>
+                  <!-- the same class for the small letters -->
+        <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+        <div class="label">Precip</div>
+        <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+        <!-- six elements in the row of table body -->
+        <td>
+          <!-- the styling is the same as in header, 
+          so the same classes are applied -->
+          <div class="info-group">
+            <div class="label">Thursday</div>
+            <div>3pm</div>
+          </div>
+        </td>
+
+        <td>
+          <!-- the same class for the images -->
+          <img src="icons/cloud.svg" alt="" class="weather-icon">
+          
+        </td>
+
+        <td>
+          <div class="label">Temp</div>
+          <div>31&deg;</div>
+        </td>
+
+        <td>
+          <div class="label"> FL Temp</div>
+          <div>25&deg;</div>
+        </td>
+
+        <td>
+          <div class="label">Wind</div>
+                    <!-- the same class for the small letters -->
+          <div>6<span class="value-sub-info">mph</span></div>
+        </td>
+
+        <td>
+          <div class="label">Precip</div>
+          <div>0<span class="value-sub-info">in</span></div>
+        </td>
+        </tr>
+
+        <tr class="hour-row">
+          <!-- six elements in the row of table body -->
+          <td>
+            <!-- the styling is the same as in header, 
+            so the same classes are applied -->
+            <div class="info-group">
+              <div class="label">Thursday</div>
+              <div>3pm</div>
+            </div>
+          </td>
+
+          <td>
+            <!-- the same class for the images -->
+            <img src="icons/cloud.svg" alt="" class="weather-icon">
+            
+          </td>
+
+          <td>
+            <div class="label">Temp</div>
+            <div>31&deg;</div>
+          </td>
+
+          <td>
+            <div class="label"> FL Temp</div>
+            <div>25&deg;</div>
+          </td>
+
+          <td>
+            <div class="label">Wind</div>
+                      <!-- the same class for the small letters -->
+            <div>6<span class="value-sub-info">mph</span></div>
+          </td>
+
+          <td>
+            <div class="label">Precip</div>
+            <div>0<span class="value-sub-info">in</span></div>
+          </td>
+          </tr>
+      </tbody>
+    </table>
 
     <script type="module" src="/main.js"></script>
   </body>
