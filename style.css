@@ -20,6 +20,13 @@ body{
 
 }
 
+/* this is to check the app loading */
+.blurred{
+  filter: blur(3px);
+  overflow: hidden;
+}
+
+
 /* the main class to control the whole header */
 .header{
 
@@ -103,4 +110,42 @@ border-right: 4px solid darkblue;
   font-size: 0.75rem;
 }
 
+/* Header part styling finished */
 
+/* SECTION PART FOR DAYS PER WEEK */
+
+/* upper class of the section */
+.day-section{
+  /* grid-like pattern */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 75px);
+  /* the pics are still in a row */
+  gap: .5rem;
+  justify-content: center;
+    /* the pics are moving to second row now
+    after justifying content */
+  padding: 1rem;
+}
+
+/* this is for all day cards */
+.day-card{
+  /* flex puts all in one line: pic, text, degree */
+  display: flex;
+  /* column direction put the pic, text, deg vertically, 
+  just like in columns */
+  flex-direction: column;
+  /* horizontal centering here,as we have column */
+  align-items: center;
+  border: 2px double lightseagreen ;
+  border-radius: .45rem .15rem;
+
+}
+
+/* this is text stylein */
+.day-card-day{
+  font-size: .75rem;
+  color: darkblue;
+  margin-top: .5rem;
+}
+
+/* SECTION FOR HOURS IN A DAY */
