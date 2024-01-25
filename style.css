@@ -149,3 +149,29 @@ border-right: 4px solid darkblue;
 }
 
 /* SECTION FOR HOURS IN A DAY */
+
+/* for all rows */
+.hour-section{
+  /* to stretch along the window width */
+  width:100%;
+  text-align: center;
+
+  /* this is a table property */
+  border-spacing: 0;
+}
+
+.hour-row{
+  background-color: lightskyblue;
+}
+
+/* I will redo the color styling later, 
+I would like to have a picture on the background,
+depending on the weather */
+.hour-row:nth-child(2n){
+  background-color: lightblue;
+}
+
+/* inner paddings */
+.hour-row > td{
+  padding: .25rem .5rem; 
+}
