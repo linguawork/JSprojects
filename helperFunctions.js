@@ -1,46 +1,8 @@
 
-
-
-// this the function to get  timezine and date
-// const desiredTimeZone = 'America/New-York'; // Replace with your desired time zone
-
-// const dateTimeOptions = {
-//   timeZone: desiredTimeZone,
-//   // Add other formatting options if needed
-// };
-
-// const dateFormatter = new Intl.DateTimeFormat('en-US', dateTimeOptions);
-// const formattedDate = dateFormatter.format(new Date());
-
-// console.log(formattedDate);
-
-
-export function myActualPositionLongLat()
-{
-if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        const latitude = position.coords.latitude;
-        const longitude = position.coords.longitude;
-  
-        // Now you can use the latitude and longitude in your code
-            // console.log("Latitude:", latitude);
-            // console.log("Longitude:", longitude);
-      },
-      (error) => {
-        console.error("Error getting location:", error.message);
-      }
-    );
-  } else {
-    console.error("Geolocation is not supported by this browser.");
-  }
-  return [latitude, longitude]
-}
-  
 //adding key-value pairs, cause weather codes have different pics
 export const ICON_MAP = new Map()
 
-//we can this way, it is longer or using method
+//we can this way, it is longer or using method addMapping
     // ICON_MAP.set(0, 'sun')
     // ICON_MAP.set(1, 'sun')
 
@@ -54,10 +16,6 @@ addMapping([95, 96, 99], "cloud-bolt")
 
 
 
-
-
-
-
 //the function will bind the codes and icon names
 function addMapping(values, icon){
   values.forEach(code => {
@@ -65,3 +23,46 @@ function addMapping(values, icon){
     
   });
 }
+
+
+
+/**
+ * The code below is to be worked out later. I just commented it for a while
+ */
+
+// this the function to get  timezone and date
+// const desiredTimeZone = 'America/New-York'; // Replace with your desired time zone
+
+// const dateTimeOptions = {
+//   timeZone: desiredTimeZone,
+//   // Add other formatting options if needed
+// };
+
+// const dateFormatter = new Intl.DateTimeFormat('en-US', dateTimeOptions);
+// const formattedDate = dateFormatter.format(new Date());
+
+// console.log(formattedDate);
+
+
+// export function myActualPositionLongLat()
+// {
+// if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(
+//       (position) => {
+//         const latitude = position.coords.latitude;
+//         const longitude = position.coords.longitude;
+  
+//         // Now you can use the latitude and longitude in the code
+//             // console.log("Latitude:", latitude);
+//             // console.log("Longitude:", longitude);
+//       },
+//       (error) => {
+//         console.error("Error getting location:", error.message);
+//       }
+//     );
+//   } else {
+//     console.error("Geolocation is not supported by this browser.");
+//   }
+//   return [latitude, longitude]
+// }
+  
