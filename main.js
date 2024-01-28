@@ -43,13 +43,14 @@ function setValue(dataAttrWithoutDataWord, parsedVal, {parent = document} = {}){
     
     //dont forget the [] in backticks
     const element = document.querySelector(`[data-${dataAttrWithoutDataWord}]`);
-        if (element) {
-        element.textContent = parsedVal;
-        console.log('After setting value:', parent.outerHTML);
-        } else {
-        console.error(`Element not found: [data-${dataAttrWithoutDataWord}]`);
-        console.log('Parent:', parent.outerHTML);
-        }
+    /* This is for debug to see the DOM   */
+        // if (element) {
+        // element.textContent = parsedVal;
+        // console.log('After setting value:', parent.outerHTML);
+        // } else {
+        // console.error(`Element not found: [data-${dataAttrWithoutDataWord}]`);
+        // console.log('Parent:', parent.outerHTML);
+        // }
 
     parent.querySelector(`[data-${dataAttrWithoutDataWord}]`).textContent = parsedVal
     // console.log(`[data-${dataAttrWithoutDataWord}]`);
@@ -90,7 +91,7 @@ function outputCurrentWeather(current){
 
 
 //this gets day of the week
-const WEEKDAY_GETTER = new Intl.DateTimeFormat(undefined, {weekday: "short"})
+const WEEKDAY_GETTER = new Intl.DateTimeFormat(undefined, {weekday: "long"})
 
 //the daily part of the DOM is selected
 const dailySection = document.querySelector("[data-day-section]")
@@ -111,7 +112,7 @@ function outputDailyWeather(daily){
         //fill in the daily data into the dom clone
 
         // console.log(day.maxTemp)
-        // console.log(WEEKDAY_GETTER.format(day.timestamp))
+        console.log(WEEKDAY_GETTER.format(day.timestamp))
         // console.log(day.timestamp)
 
 
