@@ -15,9 +15,8 @@ getWeather(52.42, 10.78, Intl.DateTimeFormat().resolvedOptions().timeZone)
 .catch(error => {
     console.error(error)
     // alert("we got the error!")
-}
-
-)
+    }
+)   
     //this is debug code to check the data
     // .then(data => { //this is for debug to see the data
     //     console.log(data)
@@ -38,7 +37,7 @@ function outputWeather({current, daily, hourly}){
 function setValue(dataAttrWithoutDataWord, parsedVal, {parent = document} = {}){
 
     //dont forget the [] in backticks
-    const element = document.querySelector(`[data-${dataAttrWithoutDataWord}]`);
+    // const element = document.querySelector(`[data-${dataAttrWithoutDataWord}]`);
                 /* This is for debug to see the DOM. When active it hinders the DOM from complete updating */
                     // if (element) {
                     // element.textContent = parsedVal;
@@ -149,7 +148,7 @@ function outputHourlyWeather(hourly){
 
     hourly.forEach( hour => {
     const hourCardDomTemplateClone = hourCardTemplate.content.cloneNode(true)
-        // console.log(hourCardDomTemplateClone)
+        console.log(hourCardDomTemplateClone)
         // console.log(hour.maxTemp)
         // console.log(HOUR_GETTER.format(hour.timestamp))
         // console.log(hour.timestamp)
@@ -158,14 +157,15 @@ function outputHourlyWeather(hourly){
 
     //clone from template
     //fill in the daily data into the dom clone
-    setValue("temp", hour.temp, { parent: hourCardDomTemplateClone })
-    setValue("fl-temp", hour.feelsLike, { parent: hourCardDomTemplateClone })
-    setValue("wind", hour.windSpeed, { parent: hourCardDomTemplateClone })
-    setValue("precip", hour.precip, { parent: hourCardDomTemplateClone })
     setValue("day", WEEKDAY_GETTER.format(hour.timestamp), {parent: 
         hourCardDomTemplateClone})
+    //in the template I had a type error: date-time/ It is actually not datE, but datA
     setValue("time", HOUR_GETTER.format(hour.timestamp), {parent: 
         hourCardDomTemplateClone})
+    // setValue("temp", hour.temp, { parent: hourCardDomTemplateClone })
+    // setValue("fl-temp", hour.feelsLike, { parent: hourCardDomTemplateClone })
+    // setValue("wind", hour.windSpeed, { parent: hourCardDomTemplateClone })
+    // setValue("precip", hour.precip, { parent: hourCardDomTemplateClone })
 
 
         // console.log(`[data-${dataAttrWithoutDataWord}]`);
