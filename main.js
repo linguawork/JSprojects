@@ -2,25 +2,70 @@ import './style.css'
 import { getWeather } from './weather'
 import { ICON_MAP } from './helperFunctions'
 
+
+
+
 /**
-    This is how we get time zone, it will give us our current location time
-    Intl.DateTimeFormat().resolvedOptions().timeZone 
+    This is how we get the current location time
+    navigator.geolocation.getCurrentPosition(currPosition, positionError)
+    the function accepts two callbacks: success AND failure
+
+    https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/getCurrentPosition
+
+    The function gets the const variable with coordinates, 
+    it is coords, not any other term
+
+    !!!let the browser have the permission to your current location
 */
+navigator.geolocation.getCurrentPosition(currPosition, positionError)
+
+
+
+function currPosition({ coords }){
+// this prints the coords
+    // console.log(coords)
+    
+    
+    getWeather(
+        coords.latitude, 
+        coords.longitude, 
+        /**
+            This is how we get time zone, it will give us our current location time
+            Intl.DateTimeFormat().resolvedOptions().timeZone 
+            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/resolvedOptions
+        */
+        Intl.DateTimeFormat().resolvedOptions().timeZone)
+        .then(outputWeather)
+    .catch(error => {
+        console.error(error)
+        alert("we got the error!")
+        }
+    )
+}
+
+function positionError(){
+    alert("Could not get the position!")
+}
 
 
 //it is important to set the correct latitude and longitude
-//this is the location for Wolfsburg, Germany
-getWeather(52.42, 10.78, Intl.DateTimeFormat().resolvedOptions().timeZone)
-.then(outputWeather)
-.catch(error => {
-    console.error(error)
-    // alert("we got the error!")
-    }
-)   
+//this is the location for Wolfsburg, Germany set manually
+    // getWeather(
+    //     52.42, 
+    //     10.78, 
+    //     Intl.DateTimeFormat().resolvedOptions().timeZone)
+    // .then(outputWeather)
+    // .catch(error => {
+    //     console.error(error)
+    //     alert("we got the error!")
+    //     }
+    // )   
+    
+
     //this is debug code to check the data
-    // .then(data => { //this is for debug to see the data
-    //     console.log(data)
-    // })
+        // .then(data => { //this is for debug to see the data
+        //     console.log(data)
+        //  })
 
 //forgot to destructure the obj
 function outputWeather({current, daily, hourly}){
@@ -52,10 +97,6 @@ function setValue(dataAttrWithoutDataWord, parsedVal, {parent = document} = {}){
                 // console.log(document.querySelector(`[data-${dataAttrWithoutDataWord}]`).textContent = parsedVal);
 }
 
-
-// function setValue(selector, value, { parent = document } = {}) {
-//     parent.querySelector(`[data-${selector}]`).textContent = value
-//   }
 
 
 function getIconUrl(iconCode){
@@ -147,9 +188,11 @@ function outputHourlyWeather(hourly){
     // console.log(hourly)
     
     
-//168 hours per week minus passes hours of the current day 
-//the whole array will be printed with forEach
-//(I commented and replaced with the shorter run for 24 hours, see below)
+/*
+168 hours per week in the hourly array, here we minus passed hours of the current day. 
+The whole array is run through with forEach(the code works).
+I commented and replaced with the shorter run for 24 hours, see below
+*/
 
     // hourly.forEach( hour => {
     // const hourCardDomTemplateClone = hourCardTemplate.content.cloneNode(true)

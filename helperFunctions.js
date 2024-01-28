@@ -44,25 +44,7 @@ function addMapping(values, icon){
 // console.log(formattedDate);
 
 
-// export function myActualPositionLongLat()
-// {
-// if (navigator.geolocation) {
-//     navigator.geolocation.getCurrentPosition(
-//       (position) => {
-//         const latitude = position.coords.latitude;
-//         const longitude = position.coords.longitude;
-  
-//         // Now you can use the latitude and longitude in the code
-//             // console.log("Latitude:", latitude);
-//             // console.log("Longitude:", longitude);
-//       },
-//       (error) => {
-//         console.error("Error getting location:", error.message);
-//       }
-//     );
-//   } else {
-//     console.error("Geolocation is not supported by this browser.");
-//   }
-//   return [latitude, longitude]
-// }
+
+
+
   
