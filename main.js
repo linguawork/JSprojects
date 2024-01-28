@@ -162,7 +162,11 @@ function outputHourlyWeather(hourly){
     //in the template I had a type error: date-time/ It is actually not datE, but datA
     setValue("time", HOUR_GETTER.format(hour.timestamp), {parent: 
         hourCardDomTemplateClone})
-    // setValue("temp", hour.temp, { parent: hourCardDomTemplateClone })
+        //setting the src attribute path to the clone of the DOM //OK
+        hourCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(hour.iconCode)
+        //maxTemp typo
+    setValue("temp", hour.maxTemp, { parent: hourCardDomTemplateClone })
+    
     // setValue("fl-temp", hour.feelsLike, { parent: hourCardDomTemplateClone })
     // setValue("wind", hour.windSpeed, { parent: hourCardDomTemplateClone })
     // setValue("precip", hour.precip, { parent: hourCardDomTemplateClone })
@@ -171,8 +175,6 @@ function outputHourlyWeather(hourly){
         // console.log(`[data-${dataAttrWithoutDataWord}]`);
         // console.log(document.querySelector(`[data-date]`);
 
-    //setting the src attribute path to the clone of the DOM
-    hourCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(hour.iconCode)
     hourlySection.append(hourCardDomTemplateClone)
     });
 
