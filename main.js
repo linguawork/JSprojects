@@ -5,7 +5,7 @@ import { ICON_MAP } from './helperFunctions'
 
 
 
-/**
+/** AUTOMATIC CURRENT LOCATION SETTING
     This is how we get the current location time
     navigator.geolocation.getCurrentPosition(currPosition, positionError)
     the function accepts two callbacks: success AND failure
@@ -48,19 +48,24 @@ function positionError(){
 }
 
 
-//it is important to set the correct latitude and longitude
-//this is the location for Wolfsburg, Germany set manually
-    // getWeather(
-    //     52.42, 
-    //     10.78, 
-    //     Intl.DateTimeFormat().resolvedOptions().timeZone)
-    // .then(outputWeather)
-    // .catch(error => {
-    //     console.error(error)
-    //     alert("we got the error!")
-    //     }
-    // )   
-    
+
+
+
+        /*
+        MANUAL SETTING OF LAT AND LONG
+        Wolfsburg, Germany: 52.42, 10.78 
+        Elista, Kalmykia: 46.19, 44.16
+        */
+            // getWeather(
+            //     46.19, 44.16, 
+            //     Intl.DateTimeFormat().resolvedOptions().timeZone)
+            // .then(outputWeather)
+            // .catch(error => {
+            //     console.error(error)
+            //     alert("we got the error!")
+            //     }
+            // )   
+            
 
     //this is debug code to check the data
         // .then(data => { //this is for debug to see the data
