@@ -141,41 +141,54 @@ const hourCardTemplate = document.getElementById("hour-row-template")
 
 
 function outputHourlyWeather(hourly){
-            // clear the hourly part
-            hourlySection.innerHTML = ""
+    // clear the hourly part
+    hourlySection.innerHTML = ""
+    
+    // console.log(hourly)
+    
+    
+//168 hours per week minus passes hours of the current day 
+//the whole array will be printed with forEach
+//(I commented and replaced with the shorter run for 24 hours, see below)
 
-            // console.log(hourly)
-
-    hourly.forEach( hour => {
-    const hourCardDomTemplateClone = hourCardTemplate.content.cloneNode(true)
-        console.log(hourCardDomTemplateClone)
-        // console.log(hour.maxTemp)
-        // console.log(HOUR_GETTER.format(hour.timestamp))
-        // console.log(hour.timestamp)
+    // hourly.forEach( hour => {
+    // const hourCardDomTemplateClone = hourCardTemplate.content.cloneNode(true)
+    //     console.log(hourCardDomTemplateClone)
+    //     // console.log(hour.maxTemp)
+    //     // console.log(HOUR_GETTER.format(hour.timestamp))
+    //     // console.log(hour.timestamp)
         
 
 
-    //clone from template
-    //fill in the daily data into the dom clone
-    setValue("day", WEEKDAY_GETTER.format(hour.timestamp), {parent: 
-        hourCardDomTemplateClone})
-    //in the template I had a type error: date-time/ It is actually not datE, but datA
-    setValue("time", HOUR_GETTER.format(hour.timestamp), {parent: 
-        hourCardDomTemplateClone})
-        //setting the src attribute path to the clone of the DOM //OK
-        hourCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(hour.iconCode)
-        //maxTemp typo
-    setValue("temp", hour.maxTemp, { parent: hourCardDomTemplateClone })
-    
+    // //clone from template
+    // //fill in the daily data into the dom clone
+    // setValue("day", WEEKDAY_GETTER.format(hour.timestamp), {parent: 
+    //     hourCardDomTemplateClone})
+    // //in the template I had a type error: date-time/ It is actually not datE, but datA
+    // setValue("time", HOUR_GETTER.format(hour.timestamp), {parent: hourCardDomTemplateClone})
+    //     //setting the src attribute path to the clone of the DOM //OK
+    // hourCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(hour.iconCode)
+    // //maxTemp typo
+    // setValue("temp", hour.maxTemp, { parent: hourCardDomTemplateClone })
     // setValue("fl-temp", hour.feelsLike, { parent: hourCardDomTemplateClone })
     // setValue("wind", hour.windSpeed, { parent: hourCardDomTemplateClone })
     // setValue("precip", hour.precip, { parent: hourCardDomTemplateClone })
+    // hourlySection.append(hourCardDomTemplateClone)
+    // });
 
 
-        // console.log(`[data-${dataAttrWithoutDataWord}]`);
-        // console.log(document.querySelector(`[data-date]`);
-
-    hourlySection.append(hourCardDomTemplateClone)
-    });
+//this is the setting for the next 24 hours 
+    for (let i = 0; i < 24; i++){
+        const hourCardDomTemplateClone = hourCardTemplate.content.cloneNode(true)
+        setValue("day", WEEKDAY_GETTER.format(hourly[i].timestamp), {parent: 
+            hourCardDomTemplateClone})
+        setValue("time", HOUR_GETTER.format(hourly[i].timestamp), {parent: hourCardDomTemplateClone})
+        hourCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(hourly[i].iconCode)
+        setValue("temp", hourly[i].maxTemp, { parent: hourCardDomTemplateClone })
+        setValue("fl-temp", hourly[i].feelsLike, { parent: hourCardDomTemplateClone })
+        setValue("wind", hourly[i].windSpeed, { parent: hourCardDomTemplateClone })
+        setValue("precip", hourly[i].precip, { parent: hourCardDomTemplateClone })
+        hourlySection.append(hourCardDomTemplateClone)
+    }
 
 }
