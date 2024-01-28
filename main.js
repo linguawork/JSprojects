@@ -3,10 +3,9 @@ import { getWeather } from './weather'
 import { ICON_MAP } from './helperFunctions'
 
 /**
- Intl.DateTimeFormat().resolvedOptions().timeZone 
-
- This is how we get time zone, it will give us our current location time
- */
+    This is how we get time zone, it will give us our current location time
+    Intl.DateTimeFormat().resolvedOptions().timeZone 
+*/
 
 
 //it is important to set the correct latitude and longitude
@@ -15,14 +14,14 @@ getWeather(52.42, 10.78, Intl.DateTimeFormat().resolvedOptions().timeZone)
 .then(outputWeather)
 .catch(error => {
     console.error(error)
-    // alert("we got the error!")
+    alert("we got the error!")
 }
 
 )
-//this code to check the data
-// .then(data => { //this is for debug to see the data
-//     console.log(data)
-// })
+    //this is debug code to check the data
+    // .then(data => { //this is for debug to see the data
+    //     console.log(data)
+    // })
 
 //forgot to destructure the obj
 function outputWeather({current, daily, hourly}){
@@ -43,7 +42,7 @@ function setValue(dataAttrWithoutDataWord, parsedVal, {parent = document} = {}){
     
     //dont forget the [] in backticks
     const element = document.querySelector(`[data-${dataAttrWithoutDataWord}]`);
-    /* This is for debug to see the DOM   */
+    /* This is for debug to see the DOM. When active it hinders the DOM from complete updating */
         // if (element) {
         // element.textContent = parsedVal;
         // console.log('After setting value:', parent.outerHTML);
@@ -53,15 +52,11 @@ function setValue(dataAttrWithoutDataWord, parsedVal, {parent = document} = {}){
         // }
 
     parent.querySelector(`[data-${dataAttrWithoutDataWord}]`).textContent = parsedVal
-    // console.log(`[data-${dataAttrWithoutDataWord}]`);
-    // console.log(document.querySelector(`[data-${dataAttrWithoutDataWord}]`).textContent = parsedVal);
+                // console.log(`[data-${dataAttrWithoutDataWord}]`);
+                // console.log(document.querySelector(`[data-${dataAttrWithoutDataWord}]`).textContent = parsedVal);
 
 }
 
-
-// function setValue(selector, value, { parent = document } = {}) {
-//     parent.querySelector(`[data-${selector}]`).textContent = value
-//   }
 
 function getIconUrl(iconCode){
     //getting the img by code from map
@@ -72,11 +67,9 @@ const currentIcon =document.querySelector(`[data-current-icon]`)
 
 //here is where we use the attr data, to apply parsed data to the DOM
 function outputCurrentWeather(current){
+
     //this line rewritten into the setValue function to make it readable
     // document.querySelector("[data-current-temp]").textContent = curr.current.currentTemp
-
-    // sometimes you need to go do on level deeper when digging the value 
-    // console.log(curr.current.currentTemp)
 
     currentIcon.src = getIconUrl(current.iconCode)
 
@@ -91,10 +84,11 @@ function outputCurrentWeather(current){
 
 
 //this gets day of the week
-const WEEKDAY_GETTER = new Intl.DateTimeFormat(undefined, {weekday: "long"})
+const WEEKDAY_GETTER = new Intl.DateTimeFormat(undefined, {weekday: "short"})
 
 //the daily part of the DOM is selected
 const dailySection = document.querySelector("[data-day-section]")
+
 // take the template
 const dayCardTemplate = document.getElementById("day-card-template")
 
@@ -103,32 +97,29 @@ function outputDailyWeather(daily){
     // clear the daily part
     dailySection.innerHTML = ""
 
-    // console.log(daily)
+                    // console.log(daily)
 
     daily.forEach( day => {
         const dayCardDomTemplateClone = dayCardTemplate.content.cloneNode(true)
-        // console.log(dayCardDomTemplateClone)
+                    // console.log(dayCardDomTemplateClone)
+                    // console.log(day.maxTemp)
+                    // console.log(WEEKDAY_GETTER.format(day.timestamp))
+                    // console.log(day.timestamp)
+                    
+        
+        
+                    //THIS PART IS NOT RENDERED
+                    //console.log('Before setting day and temp:', dayCardDomTemplateClone.innerHTML);
+        
         //clone from template
         //fill in the daily data into the dom clone
-
-        // console.log(day.maxTemp)
-        console.log(WEEKDAY_GETTER.format(day.timestamp))
-        // console.log(day.timestamp)
-
-
-
-        //THIS PART IS NOT RENDERED
-        // console.log('Before setting day and temp:', dayCardDomTemplateClone.innerHTML);
-
             setValue("day", WEEKDAY_GETTER.format(day.timestamp), {parent: 
                 dayCardDomTemplateClone})
             setValue("temp", day.maxTemp, { parent: dayCardDomTemplateClone })
 
-        // console.log('After setting day and temp:', dayCardDomTemplateClone.innerHTML);
-            
-            
-            // console.log(`[data-${dataAttrWithoutDataWord}]`);
-            // console.log(document.querySelector(`[data-date]`);
+                    // console.log('After setting day and temp:', dayCardDomTemplateClone.innerHTML);
+                    // console.log(`[data-${dataAttrWithoutDataWord}]`);
+                    // console.log(document.querySelector(`[data-date]`);
             
             //setting the src attribute path to the clone of the DOM
             dayCardDomTemplateClone.querySelector("[data-icon]").src = getIconUrl(day.iconCode)
