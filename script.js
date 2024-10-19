@@ -1,6 +1,27 @@
+/**
+ * После анализа кода
+ * я понял что принцип работы такой
+ * Сперва мы select нужный ID или класс какого-то тега, 
+ * присваиваем его переменной 
+ * и производим действие с этой переменной
+ * 
+ * Конкретно в этом коде через backtick пишем в формате строки
+ * часть дом дерева в html
+ * 
+ * присваиваем его переменной и потом переменную присваиваем 
+ * через InnerHtml классу или ID какого-то тега в DOM дереве html
+ * файла. 
+ * 
+ * 
+ * Затем можно писать функции которые могут выбирать посредством ID или
+ * классов какие-то теги в строковом выражении участка дом дерева. И производим
+ * действия с этим деревом в строковом выражении, которые мы ранее присвоили
+ * тегу в реальном DOM дереве.
+ * 
+ * 
+ */
 
 
-//the first mistake
 const itemsArray = 
 localStorage.getItem("items") ? JSON.parse(localStorage.getItem("items")):[]
 console.log(itemsArray) 
@@ -32,6 +53,7 @@ function displayItems(){
                     </div>`
         
     }
+    //string of items is assigned to a div element in the tree with the selector ".to-do-list"
     document.querySelector(".to-do-list").innerHTML = items
     //edit button
     activateDeleteListeners()
@@ -40,89 +62,103 @@ function displayItems(){
     activateCancelListeners()
 }
 
-//deleting an item from array by clicking the check icon
+
+//DELETING (привязка к индексу)
+//deleting an item from array by clicking the check icon, which is delete button
 function activateDeleteListeners(){
     let deleteBtn = document.querySelectorAll(".deleteBtn")
     deleteBtn.forEach((db, i) => {
         db.addEventListener("click", () => { deleteItem(i)})
     })   
 }
-  
+  // привязка к индексу
 function deleteItem(i){
  itemsArray.splice(i, 1) // deleting only that element
  localStorage.setItem("items", JSON.stringify(itemsArray)) // update the localStorage
  location.reload() //refresh 
 }
 
+
+
+//EDITING (ADDING) INFO INSIDE THE TEXTAREA WITH BUTTONS 
+
 function activateEditListeners(){
-    const editBtn = document.querySelectorAll(".editBtn") //choosing an edit icon
-    const updateController = document.querySelectorAll(".update-controller") //choosing buttons
-    const inputs = document.querySelectorAll(".input-controller textarea") // choosing textarea
+    const editBtn = document.querySelectorAll(".editBtn") //selecting an edit icon
+    const updateController = document.querySelectorAll(".update-controller") //selecting save/cancel buttons div block
+    const inputs = document.querySelectorAll(".input-controller textarea") // selecting textarea
     editBtn.forEach((eb, i)=>{
         eb.addEventListener("click", ()=>{
-            updateController[i].style.display = "block" //visualize button
-            inputs[i].disabled = false //can input inside textarea
+            updateController[i].style.display = "block" //on-click we visualize save/cancel buttons
+            inputs[i].disabled = false //on-click we change the status of disabled inside textarea, so we can input
         })
         
     })
 }
 
 
+//SELECTING THE RIGHT BUTTON AND TEXTAREA AND RUNNING THROUHG THE STRING
 function activateSaveListeners(){
-    const saveBtn = document.querySelectorAll(".saveBtn") //choosing button
-    const inputs = document.querySelectorAll(".input-controller textarea") //choosing textarea
+    const saveBtn = document.querySelectorAll(".saveBtn") //selecting SAVE button
+    const inputs = document.querySelectorAll(".input-controller textarea") //selecting textarea
+    //running through all the buttons in the item string and clicking on the index
     saveBtn.forEach( (sb, i)=>{
         sb.addEventListener("click", ()=>{
-            updateItem(inputs[i].value, i) // enter new info
+            updateItem(inputs[i].value, i) // entering new value in the right index of the items array
         })
     })
 }
 
 function updateItem(text, i){
-    itemsArray[i] = text //getting text
+    itemsArray[i] = text //ENTERING NEW VALUE (TEXT)
     localStorage.setItem("items", JSON.stringify(itemsArray)) // update localStorage
     location.reload()//refresh
 
 }
 
+
+
+//CLICKING CHECK ICON AND HIDING DIV BLOCKS WITH SAVE/CANCEL BLOCK AND TEXTAREA
 function activateCancelListeners(){
-    const cancelBtn = document.querySelectorAll(".cancelBtn")
-    const updateController = document.querySelectorAll(".update-controller")
-    const inputs = document.querySelectorAll(".input-controller textarea")
+    const cancelBtn = document.querySelectorAll(".cancelBtn")//selecting cancel button
+    const updateController = document.querySelectorAll(".update-controller") //selecting div with save/cancel button
+    const inputs = document.querySelectorAll(".input-controller textarea") // selecting textarea
     cancelBtn.forEach((cb, i)=>{
         cb.addEventListener("click", ()=>{
-            updateController[i].style.display = "none"
-            inputs[i].disabled = true
+            updateController[i].style.display = "none" // run through the whole string and hiding the clicked div block with save/cancel button
+            inputs[i].disabled = true //hide the textarea
         })
     })
    
 }
 
 
-
+//ADDING ITEM(id from <input>)FROM INPUT TAG TO THE ARRAY
 
 function createItem(item){
 
     console.log(itemsArray) 
     itemsArray.push(item)
     console.log(item)
-//setItem takes 2 arguments
+    //setting VALUE TO LOCALSTORAGE(setItem takes 2 arguments)
     localStorage.setItem("items", JSON.stringify(itemsArray))
     console.log("After adding:", itemsArray); // Confirm item has been added
-    location.reload()
+    location.reload() //refreshing
 }
 
 
 window.onload = function(){
-    displayDate()
-    displayItems()
+    displayDate() // show date
+    displayItems() // display the whole string
     
+    //selecting button  and clicking it will select item.value id, which is a part of input block
     document.querySelector("#enter").addEventListener("click", () => {
         const item = document.querySelector("#item").value
         // createItem(item)
         if (item) {
-            createItem(item); // Proceed only if the input has a value
-            document.querySelector("#item").value = "";
+            // Proceed only if the input has a value
+            //input block's id value is added to array
+            createItem(item); 
+            document.querySelector("#item").value = ""; // clean the input field
         } else {
             console.log("Input is empty. Please enter a value.");
         }
