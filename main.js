@@ -3,12 +3,22 @@ let toDoContainer = document.getElementById('toDoContainer') //selecting div id 
 let inputField = document.getElementById('inputField') //selecting input id
 
 addToDoButton.addEventListener('click', function(){
+    
     //this p is not in html file, so it is created dynamically
     var paragraph =document.createElement('p');
     //dynamic adding a class 
     paragraph.classList.add('paragraph-styling');
     //saving text from input
     paragraph.innerText = inputField.value;
+
+
+    // /*Templates: Instead of manually creating each element 
+    // with createElement, you can use HTML templates or template 
+    // literals to make the process easier and cleaner. Example:*/
+    // let template = `<p class="paragraph-styling">${inputField.value}</p>`;
+    // toDoContainer.innerHTML += template;
+
+    
 
 
     //place paragraph inside div block, which is empty in html file
