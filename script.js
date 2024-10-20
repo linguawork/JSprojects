@@ -14,8 +14,7 @@ function calculate(input){
         screen.value = eval(screen.value)
     }
     catch(error){
-        screen.value = 'error'
+        screen.value = 'wrong action, try again'
     }
-        
 }  
 
