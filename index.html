@@ -3,34 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <!-- https://cdnjs.com/libraries/font-awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <title>ToDo With  Local Storage</title>
+    <link rel="stylesheet" href="style.css">
+    <title>my TODO list</title>
+    <h1>To Do List</h1>
+    <div class="container">
+        <input id="inputField" type="text"> <button id="addToDo">+</button>
+        <div class="to-dos" id="toDoContainer">
+
+        </div>
+    </div>
 </head>
+    <script src="main.js"></script>
 <body>
-    <main class="app">
-        <h1> My Todo List with Local Storage</h1>
-        <div class="input-header">
-            <h1>
-                <!-- span is an inline element unlike div -->
-                <span id="date"></span>
-            </h1>
-            <div class="to-do-input">
-                <input type="text" id="item" placeholder="Enter a task..."><button id="enter">Enter a task</button>
-                
-            </div>
-        </div>
-        <!-- all the items from the array are shown here -->
-        <div class="to-do-list">
-            
-        </div>
-    </main>
     
-    <script src="script.js"> </script>
-
-
-
-
 </body>
 </html>
