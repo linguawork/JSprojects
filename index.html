@@ -4,32 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>The second weather app</title>
 </head>
 <body>
-    <div id="calculator" >
-        <!-- readonly means we can not type in it -->
-        <input id="screen" readonly>
-        <div id="buttons">
-            <button class="operation-btn" onclick="showOnScreen('+')">+</button>
-            <button onclick="showOnScreen('7')">7</button>
-            <button onclick="showOnScreen('8')">8</button>
-            <button onclick="showOnScreen('9')">9</button>
-            <button class="operation-btn" onclick="showOnScreen('-')">-</button>
-            <button onclick="showOnScreen('4')">4</button>
-            <button onclick="showOnScreen('5')">5</button>
-            <button onclick="showOnScreen('6')">6</button>
-            <!-- asterisk for multiplication -->
-            <button class="operation-btn" onclick="showOnScreen('*')">*</button>
-            <button onclick="showOnScreen('1')">1</button>
-            <button onclick="showOnScreen('2')">2</button>
-            <button onclick="showOnScreen('3')">3</button>
-            <!-- that is a forward slash for division -->
-            <button class="operation-btn" onclick="showOnScreen('/')">/</button> 
-            <button onclick="showOnScreen('0')">0</button>
-            <button onclick="showOnScreen('.')">.</button>
-            <button onclick="calculate()">=</button>
-            <button class="operation-btn" onclick="clearScreen()">C</button>
+    <div class="container">
+        <div class="current-info">
+
+            <div class="date-container">
+                <div class="time" id="time">
+                    12:30 <span id="am-pm">PM</span>
+                </div>
+                <div class="date" id="date">
+                    Monday, 24 May
+                </div>
+                <div class="others" id="current-weather-items">
+                    <div class="weather-item">
+                        <div>Humidity</div>
+                        <div>95.2%</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Pressure</div>
+                        <div>121</div>
+                    </div>
+                    <div class="weather-item">
+                        <div>Wind Speed</div>
+                        <div>222</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="place-container">
+                <div class="time-zone" id="time-zone">Asia/Kolkata</div>
+                <div id="country" class="country">India</div> 
+            </div>
+        </div>
+
+        <!-- lower part of a pic with icons,days and temp -->
+        <div class="future-forecast">
+            <div class="today" id="current-temp">
+                <img src="" alt="weather icon" class="w-icon">
+                <div class="day">Monday</div>
+                <div class="temp">Night - 25.6&#176; C</div>
+                <div class="temp">Day - 35.6&#176; C</div>
+            </div>
+<!-- side pic with weather-data -->
+            <div class="weather-forecast" id="weather-forecast">
+                <div class="weather-forecast-item">
+                    <div class="day">Monday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+                <div class="weather-forecast-item">
+                    <div class="day">Tue</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+                <div class="weather-forecast-item">
+                    <div class="day">Wed</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+                <div class="weather-forecast-item">
+                    <div class="day">Thur</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+                <div class="weather-forecast-item">
+                    <div class="day">Friday</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+                <div class="weather-forecast-item">
+                    <div class="day">Sat</div>
+                    <img src="" alt="weather icon" class="w-icon">
+                    <div class="temp">Night - 25.6&#176; C</div>
+                    <div class="temp">Day - 35.6&#176; C</div>
+                </div>
+
+
+            </div>
         </div>
 
     </div>
