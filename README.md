@@ -5,3 +5,5 @@ Big projects start small.
 These are branch names and projects saved in them:
 master: todo list with local storage
 with-no-local-storage: just a todo list, short version
+calculator: simple calculator realized
+weather-app: weather-app with weather data API
