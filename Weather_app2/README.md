@@ -9,8 +9,9 @@ hourly weather for the next 24 hours in your location
 
 Please, use vite
 To execute please run:
-1) npm i
-2) npm run dev
+1) cd to project folder
+2) npm i
+3) npm run dev
 
 
 
