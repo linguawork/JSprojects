@@ -7,6 +7,5 @@ Comments included
 
 ### Projects comments
 Weather-app with weather data API needs to be completed. 
-I have almost the same project but in another repo.
 
 Live server will help.
