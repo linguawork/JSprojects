@@ -1,17 +1,12 @@
-### JS projects
+# JS projects
 
-Every branch  of the repo used to have a separate small JS project. 
+Every branch  of the repo used to have a separate JS project. 
 When I had 4 projects I decided to merge them into master and keep them separately in folders.
-Each one is a result of practice. I analyzed code, included comments.
+Comments included
 
 
+### Projects comments
+Weather-app with weather data API needs to be completed. 
+I have almost the same project but in another repo.
 
-## Previous branch separation
-These are branch names and projects saved in them previously:
-master: todo list with local storage
-with-no-local-storage: just a todo list, short version
-calculator: simple calculator realized
-weather-app: weather-app with weather data API
-
-Later I just merged them all into the master. 
-
+Live server will help.
