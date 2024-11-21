@@ -1,0 +1,82 @@
+body{
+    /* убрать все отступы от краев */
+    margin:0;
+    display: flex;
+    /* for horizontal */
+    justify-content: center;
+    /* for  vertical*/
+    align-items: center;
+    
+}
+
+
+
+
+/* this is the main div which includes everything */
+#calculator{
+    font-family: Arial, sans-serif;
+    background-color: black;
+    border-radius: 40px;
+    max-width: 550px;
+    overflow: hidden;
+}
+
+
+/* this is the id of input */
+#screen{
+    width: 100%;
+    padding: 20px;
+    font-size: 5rem;
+    text-align: left;
+    border: none;
+    background-color: hsl(0, 5%, 20%);
+    color:white;
+
+}
+
+
+/* this is the id of div that contains children: buttons */
+#buttons{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 25px;
+}
+
+
+button{
+    width: 100px;
+    height: 100px;
+    /* to make them round */
+    border-radius: 20px;
+    background-color: hsl(0, 5%, 20%);
+    color: white;
+    font-size: 5rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* additional settings */
+button:hover{
+    background-color: hsl(0, 5%, 35%);
+}
+
+
+/* when the button is pressed, it flashes */
+button:active{
+    background-color: hsl(0, 5%, 50%);
+}
+
+
+.operation-btn{
+    background-color: hsl(0, 76%, 35%);
+}
+
+.operation-btn:hover{
+    background-color: hsl(22, 86%, 45%);
+}
+
+.operation-btn:active{
+    background-color:  hsl(22, 86%, 65%);;
+}

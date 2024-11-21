@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="calculator" >
+        <!-- readonly means we can not type in it -->
+        <input id="screen" readonly>
+        <div id="buttons">
+            <button class="operation-btn" onclick="showOnScreen('+')">+</button>
+            <button onclick="showOnScreen('7')">7</button>
+            <button onclick="showOnScreen('8')">8</button>
+            <button onclick="showOnScreen('9')">9</button>
+            <button class="operation-btn" onclick="showOnScreen('-')">-</button>
+            <button onclick="showOnScreen('4')">4</button>
+            <button onclick="showOnScreen('5')">5</button>
+            <button onclick="showOnScreen('6')">6</button>
+            <!-- asterisk for multiplication -->
+            <button class="operation-btn" onclick="showOnScreen('*')">*</button>
+            <button onclick="showOnScreen('1')">1</button>
+            <button onclick="showOnScreen('2')">2</button>
+            <button onclick="showOnScreen('3')">3</button>
+            <!-- that is a forward slash for division -->
+            <button class="operation-btn" onclick="showOnScreen('/')">/</button> 
+            <button onclick="showOnScreen('0')">0</button>
+            <button onclick="showOnScreen('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button class="operation-btn" onclick="clearScreen()">C</button>
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
